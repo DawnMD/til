@@ -8,6 +8,13 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
+    CLERK_SECRET_KEY: z.string().min(1),
+    // DRIZZLE_DATABASE_URL: z.string().min(1),
+    // DB_HOST: z.string().min(1),
+    // DB_USERNAME: z.string().min(1),
+    // DB_PASSWORD: z.string().min(1),
+    // DB_NAME: z.string().min(1),
+    DB_URL: z.string().min(1),
   },
 
   /**
@@ -17,6 +24,11 @@ export const env = createEnv({
    */
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().min(1),
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string().min(1),
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string().min(1),
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: z.string().min(1),
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: z.string().min(1),
   },
 
   /**
@@ -25,6 +37,21 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
+    // DRIZZLE_DATABASE_URL: process.env.DRIZZLE_DATABASE_URL,
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
+      process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL,
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL,
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL:
+      process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL,
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL:
+      process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL,
+    // DB_HOST: process.env.DB_HOST,
+    // DB_USERNAME: process.env.DB_USERNAME,
+    // DB_PASSWORD: process.env.DB_PASSWORD,
+    // DB_NAME: process.env.DB_NAME,
+    DB_URL: process.env.DB_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
