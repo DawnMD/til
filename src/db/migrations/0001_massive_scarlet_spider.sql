@@ -1,0 +1,1 @@
+ALTER TABLE `til` RENAME COLUMN `description` TO `content`;

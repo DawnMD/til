@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1690651732979,
+      "tag": "0000_numerous_bloodaxe",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1690652912005,
+      "tag": "0001_massive_scarlet_spider",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1690653663187,
+      "tag": "0002_marvelous_sway",
+      "breakpoints": true
+    }
+  ]
+}
