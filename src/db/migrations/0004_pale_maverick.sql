@@ -1,0 +1,1 @@
+ALTER TABLE `til` DROP COLUMN `published`;

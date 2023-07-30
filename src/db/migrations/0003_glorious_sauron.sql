@@ -1,0 +1,1 @@
+ALTER TABLE `til` ADD `published` boolean DEFAULT false NOT NULL;
