@@ -18,3 +18,4 @@ jobs:
           database_name: tils
           branch_name: ${{ github.head_ref || github.ref_name }}
           from: main
+          wait: true
