@@ -1,10 +1,10 @@
-name: Create a branch
+name: Create a planetscale DB branch
 on:
   pull_request:
     types: [opened]
 env:
   PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
-  PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+  PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_KEY }}
 
 jobs:
   create_a_branch:
@@ -18,5 +18,5 @@ jobs:
         with:
           org_name: bmorrison-ps
           database_name: recipes_db
-          branch_name: ${{ github.head_ref || github.ref_name }} 
+          branch_name: ${{ github.head_ref || github.ref_name }}
           from: main
