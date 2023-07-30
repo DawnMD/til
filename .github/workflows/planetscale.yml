@@ -1,7 +1,5 @@
 name: Create a planetscale DB branch
-on:
-  pull_request:
-    types: [opened]
+on: [pull_request]
 env:
   PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
   PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_KEY }}
