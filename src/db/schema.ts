@@ -18,3 +18,4 @@ export const til = mysqlTable("til", {
 });
 
 export type NewTilType = InferModel<typeof til, "insert">;
+export type TilType = InferModel<typeof til, "select">;
