@@ -16,7 +16,7 @@ jobs:
         uses: planetscale/create-branch-action@v1
         id: create_branch
         with:
-          org_name: bmorrison-ps
-          database_name: recipes_db
+          org_name: mainakdas104
+          database_name: tils
           branch_name: ${{ github.head_ref || github.ref_name }}
           from: main
