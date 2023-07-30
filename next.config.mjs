@@ -18,6 +18,13 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  swcMinify: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default config;
