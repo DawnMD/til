@@ -1,4 +1,5 @@
 import { TRPCError } from "@trpc/server";
+import { asc, eq } from "drizzle-orm";
 import { z } from "zod";
 import { type NewTilType, til } from "~/db/schema";
 import {
@@ -15,6 +16,20 @@ export const tilRouter = createTRPCRouter({
       return new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
         message: "Error getting all tils",
+      });
+    }
+  }),
+  getMyTils: protectedProcedure.query(async ({ ctx }) => {
+    try {
+      return await ctx.db
+        .select()
+        .from(til)
+        .where(eq(til.userId, ctx.auth.userId))
+        .orderBy(asc(til.created_at));
+    } catch (error) {
+      return new TRPCError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "Error getting tils",
       });
     }
   }),
