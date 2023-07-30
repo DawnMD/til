@@ -10,7 +10,7 @@ import {
 export const tilRouter = createTRPCRouter({
   getAllTils: publicProcedure.query(async ({ ctx }) => {
     try {
-      return await ctx.db.select().from(til).execute();
+      return await ctx.db.select().from(til);
     } catch (error) {
       return new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
@@ -21,9 +21,9 @@ export const tilRouter = createTRPCRouter({
   createTil: protectedProcedure
     .input(
       z.object({
-        title: z.string().nonempty(),
-        content: z.string().nonempty(),
-        tags: z.string().nonempty(),
+        title: z.string().nonempty("Title is required"),
+        content: z.string().nonempty("Content is required"),
+        tags: z.string().nonempty("Tags are optional"),
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -37,7 +37,7 @@ export const tilRouter = createTRPCRouter({
       try {
         await ctx.db.insert(til).values(data);
       } catch (error) {
-        return new TRPCError({
+        throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
           message: "Error creating til",
         });
